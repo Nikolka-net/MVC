@@ -1,4 +1,5 @@
 
+// Экспорт свойства и метода
 export default {
 	input: document.getElementById('input'),
 	updateCounter: function (counter) {
