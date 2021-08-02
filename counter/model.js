@@ -1,33 +1,38 @@
+'use strict';
 
-export default {
-	counter: 0,
 
-	// Запус метода при обновлении стр.
-	init: function() {
-		this.loadFromLocalStorage();
-	},
+export default class Model {
+	constructor() {
+		this.counter = 0;
+		this.loadFromLocalStorage(); // Запуск метода при обновлении стр., сразу обновл. счётчик
+	}
 
 	// Сохр в localStorage счётчик в формате строки в json
-	saveToLocalStorage: function () {
+	saveToLocalStorage() {
 		localStorage.setItem('counter', JSON.stringify(this.counter));
-	},
+	}
+
 	// Получ. данные из localStorage
-	loadFromLocalStorage: function () {
+	loadFromLocalStorage() {
 		const data = localStorage.getItem('counter'); // получаем
 		if (data) {
 			this.counter = JSON.parse(data); // запис. в счётчик, преобразовав из строки
 		}
-	},
-	increase: function () {
+	}
+
+	increase() {
 		++this.counter;
 		this.saveToLocalStorage(); // сохр. новые данные в local
-	},
-	decrease: function () {
+	}
+
+	decrease() {
 		--this.counter;
 		this.saveToLocalStorage();
-	},
-	reset: function () {
+	}
+
+	reset() {
 		this.counter = 0;
 		this.saveToLocalStorage();
 	}
+
 }
