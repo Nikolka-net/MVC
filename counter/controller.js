@@ -5,7 +5,8 @@ const btnMinus = document.getElementById('btnMinus');
 const btnReset = document.getElementById('btnReset');
 const btnPlus = document.getElementById('btnPlus');
 
-view.updateCounter(model.counter);
+model.init(); // запуск модели, получ. значение счётчика из local
+view.updateCounter(model.counter); // вставл. это значение в инпут. Стартовое значение
 
 btnPlus.addEventListener('click', function () {
 	model.increase();
